@@ -1,0 +1,50 @@
+.faq h1 {
+    
+  line-height: 1.2;
+  margin-bottom: 40px;
+  margin-left: 56rem;
+}
+main {
+  max-width: 80rem;
+  margin-left: 35rem;
+  margin-right: 35rem;
+}
+
+summary {
+  font-size: 1.8rem;
+  font-weight: 600;
+  background-color: #fff;
+  color: #333;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+  border-radius: 0.25rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+p{
+  font-size: 1.7rem;
+}
+
+details[open] summary ~ * {
+  animation: sweep .5s ease-in-out;
+}
+@keyframes sweep {
+  0%    {opacity: 0; margin-top: -10px}
+  100%  {opacity: 1; margin-top: 0px}
+}
+details > summary::after {
+  position: absolute;
+  content: "+";
+  right: 20px;
+}
+details[open] > summary::after {
+  position: absolute;
+  content: "-";
+  right: 20px;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

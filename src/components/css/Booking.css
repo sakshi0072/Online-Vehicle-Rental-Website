@@ -1,0 +1,28 @@
+.book-form {
+  border: 0.1rem solid black;
+  margin: 10rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.book-element {
+  margin: auto;
+  padding: auto;
+}
+
+.e1 {
+  margin: auto;
+  text-align: justify;
+}
+#submit {
+  background-color: #0D94FB;
+  color: snow;
+  font-size: 1.8rem;
+  border-radius: 0.1rem;
+  margin: 3rem;
+  height: 3rem;
+}
+
+#submit:hover{
+    color: rgb(13, 1, 3);
+}

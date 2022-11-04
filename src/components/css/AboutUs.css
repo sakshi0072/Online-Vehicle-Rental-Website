@@ -1,0 +1,22 @@
+.ab-img img{
+    background-repeat: no-repeat;
+    height: 80vh;
+    margin-top: 5rem;
+    width: 40%;
+    margin-left: 5rem;
+}
+
+.ab-imgp {
+    font-size: 2.2rem;
+}
+
+.ab-h1{
+    font-size: 4rem;
+}
+
+.ab-content{
+    margin-left: 63rem;
+    margin-top: -65rem;
+    padding: 7rem;
+    text-align: justify;
+}

@@ -1,0 +1,95 @@
+@media (max-width: 998px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.bg-vi {
+    background-image: url('../img/samplebg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+    background-size: cover;
+}
+
+
+.container-vi {
+    border: 0.1rem rgba(0, 0, 0, 80%) solid;
+    padding-bottom: 10rem;
+    border-radius: 5rem;
+    background-color: rgba(0, 0, 0, 80%);
+    color: whitesmoke;
+    /* text-align: center;  */
+    width: 75rem;
+    margin-bottom: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pi-vi {
+    margin-left: 10rem;
+}
+.container-vi input {
+    height: 5rem;
+    width: 30rem;
+    font-size: 2rem;
+    margin-left: 5rem;
+    background-color: rgba(0, 0, 0, 0%);
+    color: whitesmoke;
+    border: none;
+    border-color: rgba(0, 0, 0, 80%);
+    border-bottom: 0.2rem white solid;
+    margin-bottom: 2rem;
+}
+.container-vi label {
+    font-size: 3rem;
+    margin-left: 5rem;
+}
+.container-vi select {
+    height: 5rem;
+    width: 30rem;
+    font-size: 2rem;
+    margin-left: 5rem;
+    background-color: rgba(0, 0, 0, 0%);
+    color: whitesmoke;
+    border: none;
+    border-color: rgba(0, 0, 0, 80%);
+    border-bottom: 0.2rem white solid;
+}
+.pi-vi h1 {
+    text-align: center;
+    font-size: 5rem;
+}
+.container-vi h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+.container-vi p{
+    margin-left: 5rem;
+}
+.login{
+    padding-top: 15rem;
+    padding-bottom: 8.6rem;
+    text-align: center;
+}
+.login-lbl{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}

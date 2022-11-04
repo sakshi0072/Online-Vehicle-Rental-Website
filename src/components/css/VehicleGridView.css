@@ -1,0 +1,43 @@
+.lbl-bar {
+    display: flex;
+    text-align: center;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+}
+.slt-bar{
+    margin-left: 5rem;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+}
+.Card-Vehicle{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.Vehicle-card{
+    border: .2rem black solid;
+    height: 36rem;
+    width: 36rem;
+    margin-top: 5rem;
+}
+.grid-img img{
+    border: .1rem black solid;
+    width: 32rem;
+    height: 18rem;
+    margin: 2rem;
+}
+.grid-content{
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+.Vehicle-card button{
+    background-color: rgb(94, 158, 214);
+    color: aliceblue;
+    height: 4rem;
+    width: 10rem;
+    font-size: 1.5rem;
+}

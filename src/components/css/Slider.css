@@ -1,0 +1,25 @@
+@media (max-width:988px) {
+    html{
+        font-size: 55%;
+    } 
+    .images img{
+        width: 130%;
+        height: 30rem;
+    }
+}
+@media (max-width:768px) {
+    html{
+        font-size: 45%;
+    }
+    .images img{
+        height: 30rem;
+    }
+}
+@media (min-width:989px) {
+    html{
+        font-size: 62.5%;
+    }
+    .images img{
+        height: 50rem;
+    }
+}

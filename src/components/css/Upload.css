@@ -1,0 +1,44 @@
+.bg-up {
+    background-image: url('../img/samplebg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+    background-size: cover;
+    height: 65rem;
+    padding-top:15rem;
+    
+}
+
+
+.container-up {
+
+    border: 0.1rem rgba(0, 0, 0, 80%) solid;
+    border-radius: 5rem;
+    background-color: rgba(0, 0, 0, 80%);
+    color: whitesmoke;
+    text-align: center; 
+    width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;
+}
+.container-up input {
+    height: 5rem;
+    width: 30rem;
+    font-size: 2rem;
+    margin-left: 5rem;
+    background-color: rgba(0, 0, 0, 0%);
+    color: whitesmoke;
+    border: none;
+    border-color: rgba(0, 0, 0, 80%);
+    border-bottom: 0.2rem white solid;
+    margin-bottom: 5rem;
+}
+.container-up label {
+    font-size: 3rem;
+    margin-left: 5rem;
+}
+
+.container-up h1{
+    margin-bottom: 5rem;
+}

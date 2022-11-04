@@ -1,0 +1,50 @@
+html {
+  font-size: 62.5%;
+  margin: 0;
+}
+
+.Tiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.Tile-card {
+  width: 35rem;
+  height: 40rem;
+  border-radius: 6rem;
+  text-align: center;
+  color: blanchedalmond;
+}
+
+.Tile-image {
+  width: 35rem;
+  height: 40rem;
+  border-radius: 6rem;
+}
+
+.Tile-image img {
+  width: 35rem;
+  height: 40rem;
+  object-fit: cover;
+  border-radius: 6rem;
+  border: 0.1rem black solid;
+}
+
+.Tile-title {
+  margin-top: -18rem;
+  font-size: 3rem;
+  font-weight: bolder;
+  font-family: 'times new roman';
+}
+
+.Tile-content {
+  margin-top: 1rem;
+  font-size: 3rem;
+  /* text-align: justify; */
+  padding: 0rem 2rem;
+  font-family: 'times new roman';
+}

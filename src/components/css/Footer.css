@@ -1,0 +1,140 @@
+.foot{
+    margin-top: 7rem;
+    height: 65rem;
+    background-color: black;
+    color: snow;
+}
+
+ img{
+    height: 10rem;
+} 
+.foot h1{
+    padding-top: 16rem;
+    margin-left: 5rem;
+    font-size: 2rem;
+}
+
+.foot-about{
+    margin-top: -10rem;
+    text-align: justify;
+}
+
+.foot-about h1{
+    color: orange;
+}
+
+.foot-about p{
+    margin-left: 5rem;
+}
+
+.foot-contact{
+    margin-top: -10rem;
+}
+
+.foot-contact h1{
+    color: orange;
+}
+
+.foot-contact p{
+    margin-left: 5rem;
+}
+
+hr{
+    margin-top: 4rem;
+}
+
+.foot-info{
+    margin-top: -60rem;
+    margin-left: 55rem;
+    text-align: justify;
+}
+
+.foot-info a{
+    margin-left: 5rem;
+    text-decoration: none;
+    color: snow;
+    cursor: pointer;
+    line-height: 4rem;
+}
+
+.foot-info a:hover{
+    color: orange;
+}
+
+.foot-info h1{
+    color: orange;
+}
+
+.foot-help{
+    margin-top: -34.7rem;
+    margin-left: 72rem;
+    text-align: justify;
+}
+
+.foot-help a{
+    margin-left: 5rem;
+    text-decoration: none;
+    color: snow;
+    cursor: pointer;
+    line-height: 4rem;
+}
+
+.foot-help a:hover{
+    color: orange;
+}
+
+.foot-help h1{
+    color: orange;
+}
+
+.foot img{
+    margin-top: 1rem;
+    margin-left:12rem;
+    height: 14rem;
+    width: 30rem;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+.foot-form1{
+    margin-left: 100rem;
+    margin-top: -20rem;
+}
+
+.foot-element{
+    font-size: 1.8rem;
+    line-height: 5.5rem;
+}
+
+#name{
+    margin-left: 5rem;
+}
+
+#cn{
+    margin-left: 1.6rem;
+}
+
+#feed{
+    margin-left: 2.3rem;
+}
+
+.foot-bt{
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7rem;
+}
+.foot-submit{
+    align-content: center;
+    margin-left: 8rem;
+    margin-top: 2rem;
+    margin-bottom: auto;
+    height: 3rem;
+    width: 7rem;
+    font-size: medium;
+}
+.foot-form1 input{
+    height: 3rem;
+}
