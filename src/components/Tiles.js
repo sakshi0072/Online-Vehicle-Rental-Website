@@ -10,24 +10,23 @@ const Tiles = () => {
       <div className="Tiles">
         <div className="Tile-card">
           <div className="Tile-image">
-            <img src={c2} />
+            <img src={c2} alt="Flexible Rentals" />
           </div>
           <div className="Tile-title">Flexible rentals</div>
           <div className="Tile-content">
-            Cancel or change most bookings for free up to 48 hours before
-            pick-up
+            Cancel or change most bookings for free up to 48 hours before pick-up
           </div>
         </div>
         <div className="Tile-card">
           <div className="Tile-image">
-            <img src={c1} />
+            <img src={c1} alt="No Hidden Fees" />
           </div>
           <div className="Tile-title">No hidden fees</div>
           <div className="Tile-content">Know exactly what you’re paying</div>
         </div>
         <div className="Tile-card">
           <div className="Tile-image">
-            <img src={c3} />
+            <img src={c3} alt="Price Match Guarantee" />
           </div>
           <div className="Tile-title">Price Match Guarantee</div>
           <div className="Tile-content">

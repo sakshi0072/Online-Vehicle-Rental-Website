@@ -12,13 +12,13 @@ const multer = require("multer");
 // import driver from "./Driverdb.js";
 const driver = require("./Driverdb.js");
 const Vehicle = require("./VehicleDb.js");
-const sign = require("./signDb.js");
+const sign = require("./signdb.js");
 
 //api config
 const app = express();
 const port = process.env.PORT || 8000;
 const connection_url =
-  "mongodb+srv://root:root@cluster0.ruwt9jl.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://xyz:root@xyz.163cd.mongodb.net/rentkar?retryWrites=true&w=majority&appName=xyz";
 
 //Middlewares
 app.use(express.json());

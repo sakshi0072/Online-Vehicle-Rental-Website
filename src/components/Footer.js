@@ -8,7 +8,6 @@ import { BsInstagram } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { ImWhatsapp } from "react-icons/im";
-
 import ftim from "./img/footimg.png";
 
 function Footer() {
@@ -84,15 +83,15 @@ function Footer() {
       </div>
       <div className="foot-form1">
         <label className="foot-element">Name :</label>
-        <input type="text" id="name" value="name"></input>
+        <input type="text" id="name" placeholder="Enter your name"></input>
         <br></br>
 
         <label className="foot-element">Phone No. :</label>
-        <input type="text" id="cn" value="cn"></input>
+        <input type="text" id="cn"  placeholder="Enter your Phone no"></input>
         <br></br>
 
         <label className="foot-element">Feedback :</label>
-        <input type="text-area" id="feed" value="feed"></input>
+        <input type="text-area" id="feed" placeholder="Enter your feedback"></input>
         <br></br>
         <input type="submit" value="Submit" className="foot-submit" />
       </div>

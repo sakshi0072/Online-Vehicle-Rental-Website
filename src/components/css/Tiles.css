@@ -1,50 +1,119 @@
-html {
-  font-size: 62.5%;
-  margin: 0;
-}
-
+/* Base styles */
 .Tiles {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin: 5rem 0;
 }
 
 .Tile-card {
   width: 35rem;
-  height: 40rem;
-  border-radius: 6rem;
+  height: auto;
   text-align: center;
-  color: blanchedalmond;
+  color: white;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 .Tile-image {
-  width: 35rem;
-  height: 40rem;
-  border-radius: 6rem;
+  width: 100%;
+  height: 25rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.Tile-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
 }
 
 .Tile-image img {
-  width: 35rem;
-  height: 40rem;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 6rem;
-  border: 0.1rem black solid;
+  border-radius: 2rem;
+  border: 0.1rem solid black;
 }
 
 .Tile-title {
-  margin-top: -18rem;
-  font-size: 3rem;
-  font-weight: bolder;
-  font-family: 'times new roman';
+  position: absolute;
+  bottom: 5rem;
+  left: 0;
+  right: 0;
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-family: 'Times New Roman', serif;
+  z-index: 1;
 }
 
 .Tile-content {
-  margin-top: 1rem;
-  font-size: 3rem;
-  /* text-align: justify; */
-  padding: 0rem 2rem;
-  font-family: 'times new roman';
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  font-size: 1.8rem;
+  padding: 0 2rem;
+  font-family: 'Times New Roman', serif;
+  z-index: 1;
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+  .Tiles {
+    flex-direction: column;
+    margin: 3rem 1rem;
+  }
+
+  .Tile-card {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .Tile-image {
+    height: 18rem;
+  }
+
+  .Tile-title {
+    font-size: 2.2rem;
+    bottom: 6rem;
+  }
+
+  .Tile-content {
+    font-size: 1.6rem;
+    bottom: 1.5rem;
+  }
+}
+
+/* Tablet View */
+@media (min-width: 481px) and (max-width: 768px) {
+  .Tiles {
+    margin: 4rem 2rem;
+  }
+
+  .Tile-card {
+    width: 45%;
+    margin-bottom: 2rem;
+  }
+
+  .Tile-image {
+    height: 19rem;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 769px) {
+  .Tile-card {
+    width: 35rem;
+  }
+
+  .Tile-image {
+    height: 20rem;
+  }
 }

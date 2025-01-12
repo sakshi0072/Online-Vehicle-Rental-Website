@@ -25,14 +25,18 @@
         /* padding-left: 0.2rem; */
         transition: all 2s linear;
         transform-origin: top;
+        margin-top: 5rem;
     }
 
     .mobile ul{
-        height: 20rem;
+        height: 20rem !important;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         align-items: start;
+        margin: 0 !important;
+        text-decoration: none;
+        
     }
    
     .mobile ul li:first-child{

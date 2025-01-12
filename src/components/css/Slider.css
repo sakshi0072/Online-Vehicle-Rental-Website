@@ -1,25 +1,63 @@
-@media (max-width:988px) {
-    html{
-        font-size: 55%;
-    } 
-    .images img{
-        width: 130%;
-        height: 30rem;
+/* Base styles for the carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+  }
+  
+  .images img {
+    object-fit: cover;
+    width: 100%;
+    height: 50rem; /* Default size for larger screens */
+    transition: all 0.5s ease; /* Smooth transition for image resizing */
+  }
+  
+  /* For screens smaller than 989px (Tablets and below) */
+  @media (max-width: 988px) {
+    html {
+      font-size: 55%; /* Adjust base font size for responsiveness */
     }
-}
-@media (max-width:768px) {
-    html{
-        font-size: 45%;
+    .carousel-item img {
+      height: 30rem; /* Adjust image height for smaller screens */
+      object-position: center; /* Keep the focus centered */
     }
-    .images img{
-        height: 30rem;
+  }
+  
+  /* For screens smaller than 768px (Mobile screens) */
+  @media (max-width: 768px) {
+    html {
+      font-size: 45%; /* Further decrease font size for smaller devices */
     }
-}
-@media (min-width:989px) {
-    html{
-        font-size: 62.5%;
+    .carousel-item img {
+      height: 20rem; /* Reduce height even further for mobile */
     }
-    .images img{
-        height: 50rem;
+  }
+  
+  /* For larger screens (989px and above, like desktops) */
+  @media (min-width: 989px) {
+    html {
+      font-size: 62.5%; /* Standard base font size for desktops */
     }
-}
+    .carousel-item img {
+      height: 50rem; /* Default large image height */
+    }
+  }
+  
+  /* Adjusting carousel caption */
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    transition: all 0.3s ease; /* Smooth transition for caption visibility */
+  }
+  
+  /* Optional: Hover effects for carousel item */
+  .carousel-item:hover .carousel-caption {
+    opacity: 1;
+  }
+  
+  /* Optional: Adjust transition timing of the carousel */
+  .carousel-item {
+    transition: opacity 0.7s ease;
+  }
+  

@@ -1,13 +1,18 @@
-.faq h1 {
-    
-  line-height: 1.2;
-  margin-bottom: 40px;
-  margin-left: 56rem;
+/* Base styles */
+.faq {
+  padding: 2rem;
 }
+
+.faq h1 {
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 3rem;
+}
+
 main {
   max-width: 80rem;
-  margin-left: 35rem;
-  margin-right: 35rem;
+  margin: 0 auto;
 }
 
 summary {
@@ -15,36 +20,124 @@ summary {
   font-weight: 600;
   background-color: #fff;
   color: #333;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-bottom: 1rem;
   outline: none;
   border-radius: 0.25rem;
   text-align: left;
   cursor: pointer;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-p{
+.faq__content {
+  padding: 1rem 1.5rem;
+}
+
+p {
   font-size: 1.7rem;
+  line-height: 1.6;
 }
 
+/* Animation for opening details */
 details[open] summary ~ * {
   animation: sweep .5s ease-in-out;
 }
+
 @keyframes sweep {
   0%    {opacity: 0; margin-top: -10px}
   100%  {opacity: 1; margin-top: 0px}
 }
+
+/* Plus/Minus icon styles */
 details > summary::after {
   position: absolute;
   content: "+";
   right: 20px;
 }
+
 details[open] > summary::after {
-  position: absolute;
   content: "-";
-  right: 20px;
 }
+
 details > summary::-webkit-details-marker {
   display: none;
+}
+
+/* Desktop View (769px and above) */
+@media (min-width: 769px) {
+  .faq {
+    padding: 4rem;
+  }
+
+  .faq h1 {
+    font-size: 3.2rem;
+  }
+
+  main {
+    width: 80%;
+  }
+
+  summary {
+    font-size: 1.8rem;
+    padding: 2rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+  }
+}
+
+/* Tablet View (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .faq {
+    padding: 3rem 2rem;
+  }
+
+  .faq h1 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+  }
+
+  main {
+    width: 90%;
+  }
+
+  summary {
+    font-size: 1.6rem;
+    padding: 1.5rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile View (up to 480px) */
+@media (max-width: 480px) {
+  .faq {
+    padding: 2rem 1rem;
+  }
+
+  .faq h1 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  summary {
+    font-size: 1.5rem;
+    padding: 1.2rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  .faq__content {
+    padding: 1rem;
+  }
 }
