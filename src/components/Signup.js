@@ -1,89 +1,124 @@
-import React, {useState} from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/VehicleInfo.css";
+import { signupUser } from "../components/api/Api"; // Import the API function
 
 function Signup() {
   const [Sign, setSign] = useState({
     Name: "",
-    Email:"",
+    Email: "",
     Phone: "",
     Password: "",
   });
-  let name, value;
-  const handelinputsSign = (e) => {
-    console.log(e);
-    name = e.target.name;
-    value = e.target.value;
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
+  const handleInputsSign = (e) => {
+    const { name, value } = e.target;
     setSign({ ...Sign, [name]: value });
+  };
+
+  const validateForm = () => {
+    const { Name, Email, Phone, Password } = Sign;
+
+    // Validate name
+    if (!Name) return "Name is required.";
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!Email || !emailRegex.test(Email)) return "Invalid email format.";
+
+    // Validate phone number
+    const phoneRegex = /^\d{10}$/;
+    if (!Phone || !phoneRegex.test(Phone))
+      return "Invalid phone number. Use a 10-digit number.";
+
+    // Validate password
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!Password || !passwordRegex.test(Password)) {
+      return "Password must include at least 8 characters, one uppercase, one lowercase, one number, and one symbol.";
+    }
+
+    return null; // No errors
   };
 
   const postDataSign = async (e) => {
     e.preventDefault();
 
-    const { Name, Email, Phone,Password } = Sign;
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
 
-    console.log(Sign);
-    axios
-      .post("http://localhost:8000/sign", Sign)
-      .then(function (response) {
-        console.log(response);
-      });
-    
+    try {
+      // Call the signup API
+      const response = await signupUser(Sign);
+      setSuccess("Signup successful! Redirecting to login...");
+      setError(""); // Clear previous errors
+      setTimeout(() => navigate("/login"), 2000); // Redirect after 2 seconds
+    } catch (err) {
+      console.error(err);
+      setError(err.message || "An error occurred during signup.");
+      setSuccess("");
+    }
   };
+
   return (
-    <>
-      <div className="signup bg-vi">
-        <div className="container-vi">
-          <h1>Sign Up</h1>
+    <div className="signup bg-vi">
+      <div className="container-vi">
+        <h1>Sign Up</h1>
+        {error && <p className="error-msg">{error}</p>}
+        {success && <p className="success-msg">{success}</p>}
+        <form onSubmit={postDataSign}>
           <label>Name</label> <br />
           <input
             type="text"
             name="Name"
-            id="name"
             placeholder="Enter Your Full Name"
             value={Sign.Name}
-            onChange={handelinputsSign}
-          />{" "}
+            onChange={handleInputsSign}
+          />
           <br />
-          <label>Email id</label> <br />
+          <label>Email</label> <br />
           <input
             type="email"
             name="Email"
-            id="name"
-            placeholder="Enter Your Email Id"
+            placeholder="Enter Your Email"
             value={Sign.Email}
-            onChange={handelinputsSign}
+            onChange={handleInputsSign}
           />
           <br />
-          <label className="lbl">Ph. Number:</label> <br />
+          <label>Phone</label> <br />
           <input
-            type="number"
+            type="tel"
             name="Phone"
             placeholder="Enter Your Contact Number"
             value={Sign.Phone}
-            onChange={handelinputsSign}
-          />{" "}
+            onChange={handleInputsSign}
+          />
           <br />
           <label>Password</label> <br />
           <input
             type="password"
             name="Password"
-            id="pass"
-            placeholder="Enter password "
+            placeholder="Enter Password"
             value={Sign.Password}
-            onChange={handelinputsSign}
+            onChange={handleInputsSign}
           />
-          <br />
           <p>
-            *Your password should Include lower-case letter
-            Include upper-case letter Include numbers Include symbols{" "}
+            *Your password should include at least 8 characters, one uppercase
+            letter, one lowercase letter, one number, and one symbol.
           </p>
-          <center><Link onClick={postDataSign} to="/login"><input type="submit" name="submit"/></Link></center>
-        </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>
+          Already have an account? <Link to="/login">Log In</Link>
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 

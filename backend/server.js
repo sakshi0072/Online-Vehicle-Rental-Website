@@ -1,149 +1,42 @@
-// import express, { Router } from "express";
 const express = require("express");
-// import mongoose from "mongoose";
-const mongoose = require("mongoose");
-// import  {dirname} from "path";
-const path = require("path");
-// import Cors from "cors";
 const Cors = require("cors");
-// import multer from "multer";
-const multer = require("multer");
-
-// import driver from "./Driverdb.js";
-const driver = require("./Driverdb.js");
-const Vehicle = require("./VehicleDb.js");
-const sign = require("./signdb.js");
-
-//api config
+const connectDB = require("./config/db");
+const upload = require("./config/multer");
+const userRoutes = require("./routes/userRoute");
+// API config
 const app = express();
 const port = process.env.PORT || 8000;
-const connection_url =
-  "mongodb+srv://xyz:root@xyz.163cd.mongodb.net/rentkar?retryWrites=true&w=majority&appName=xyz";
 
-//Middlewares
+// Middlewares
 app.use(express.json());
 app.use(Cors());
 
-//DB config
-mongoose.connect(connection_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-//API Endpoints
-app.get("/", (req, res) => res.status(200).send("Hello!!!"));
-
-app.post("/drivers", (req, res) => {
-  const DriverInfo = req.body;
-
-  driver.create(DriverInfo, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
-
-app.get("/drivers", (req, res) => {
-  driver.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
-
-app.post("/sign", (req, res) => {
-  const signInfo = req.body;
-
-  sign.create(signInfo, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
-
-app.get("/sign", (req, res) => {
-  sign.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
-
-app.get("/login", (req, res) =>{
-  sign.findOne({Email:req.body.Email})
-  .then()
-  .catch((e) =>{
-    res.status(404).send({
-      message: "Email not Found",
-      e
-    })
-    alert('Email Not Found')
-  })
-})
+app.use('/user', userRoutes)
 
 
-app.post("/Vehicle", (req, res) => {
-  const VehicleInfo = req.body;
 
-  Vehicle.create(VehicleInfo, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
 
-app.get("/Vehicle", (req, res) => {
-  Vehicle.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
+// Connect to MongoDB
+connectDB();
 
-const storage1 = multer.diskStorage({
-  destination: path.join(__dirname, "./uploads/", "Photo"),
-  filename: function (req, file, cb) {
-    // null as first argument means no error
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-
+// Image upload route
 app.post("/imageupload", async (req, res) => {
   try {
-    // 'avatar' is the name of our file input field in the HTML form
-
-    let upload = multer({ storage: storage1 }).single("avatar1");
-
-    upload(req, res, function (err) {
-      // req.file contains information of uploaded file
-      // req.body contains information of text fields
-
+    upload.single("avatar1")(req, res, function (err) {
       if (!req.file) {
-        return res.send("Please select an image to upload");
+        return res.status(400).send("Please select an image to upload.");
       } else if (err instanceof multer.MulterError) {
-        return res.send(err);
+        return res.status(500).send(err.message);
       } else if (err) {
-        return res.send(err);
+        return res.status(500).send(err.message);
       }
-
+      res.status(200).send("Image uploaded successfully.");
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send("Server error during file upload.");
   }
 });
 
-
-//Listener
-app.listen(port, () => console.log(`Listining on localhost: ${port}`));
+// Listener
+app.listen(port, () => console.log(`Listening on localhost:${port}`));

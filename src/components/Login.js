@@ -1,75 +1,77 @@
 import React, { useEffect, useState } from "react";
-import "./css/VehicleInfo.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./css/VehicleInfo.css";
 
 function Login() {
   const [MyData, setMyData] = useState([]);
-  useEffect(() => {
-    // getVehicle();
-    axios.get("http://localhost:8000/sign").then((res) => setMyData(res.data));
-  }, []);
-  console.log(MyData);
   const [Log, setLog] = useState({
     Email: "",
     Password: "",
   });
-  let name, value;
-  const handelinputsLog = (e) => {
-    console.log(e);
-    name = e.target.name;
-    value = e.target.value;
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
+  // Fetch user data on component mount
+  useEffect(() => {
+    axios.get("http://localhost:8000/sign").then((res) => setMyData(res.data));
+  }, []);
+
+  const handleInputsLog = (e) => {
+    const { name, value } = e.target;
     setLog({ ...Log, [name]: value });
   };
 
-  const postDataLog = async (e) => {
-    var i=0;
+  const postDataLog = (e) => {
     e.preventDefault();
-    MyData.map((Data) => {
-        if(Log.Email == Data.Email ){
-            i=1;
-        }
-    })
+
+    // Check user credentials
+    const user = MyData.find(
+      (user) => user.Email === Log.Email && user.Password === Log.Password
+    );
+
+    if (user) {
+      alert("Login successful!");
+      navigate("/vehicle"); // Navigate to /vehicle route
+    } else {
+      setError("Invalid email or password.");
+    }
   };
-    return (
-    <>
-      <div className="login bg-vi">
-        <div className="container-vi">
-          <h1>Login</h1>
-          <label className="login-lbl">Email id</label>
+
+  return (
+    <div className="login bg-vi">
+      <div className="container-vi">
+        <h1>Login</h1>
+        {error && <p className="error-msg">{error}</p>}
+        <form onSubmit={postDataLog}>
+          <label className="login-lbl">Email ID</label>
           <input
             type="email"
             name="Email"
-            id="name"
             className="login-lbl"
-            placeholder="Enter Your Email Id"
+            placeholder="Enter Your Email ID"
             value={Log.Email}
-            onChange={handelinputsLog}
+            onChange={handleInputsLog}
           />
           <br />
           <label className="login-lbl">Password</label>
           <input
             type="password"
             name="Password"
-            id="pass"
             className="login-lbl"
-            placeholder="Enter password "
+            placeholder="Enter Password"
             value={Log.Password}
-            onChange={handelinputsLog}
+            onChange={handleInputsLog}
           />
           <br />
           <center>
-          {/* <form method="GET"action="AboutUs.js"/> */}
-            <input
-              type="submit"
-              name="submit"
-              className="login-lbl"
-              onClick={postDataLog}
-            />
+            <button type="submit" className="login-btn">
+              Login
+            </button>
           </center>
-        </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 
